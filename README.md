@@ -1,2 +1,0 @@
-# cordofficial
-Official Website
