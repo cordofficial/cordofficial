@@ -73,6 +73,38 @@
             a {
                 text-decoration:none;
             }
+            input {
+                margin-bottom:1%;
+                border:1px solid lime;
+                border-radius:5px;
+                padding:5px;
+            }
+            input:focus {
+                outline:none;
+            }
+            select {
+                margin-bottom:1%;
+                border:1px solid lime;
+                border-radius:5px;
+                padding:5px;
+            }
+            select:focus {
+                outline:none;
+            }
+            textarea {
+                margin-bottom:1%;
+                border:1px solid lime;
+                border-radius:5px;
+                padding:5px;
+            }
+            textarea:focus {
+                outline:none;
+            }
+            input[type=submit] {
+                background-color:black;
+                color:pink;
+                border:none;
+            }
         </style>
         <script>
         function homet() {
@@ -126,10 +158,21 @@
             <h2>Contact</h2>
         <div class="developers" style="padding:15px">
         <h2 class="devtitle">E-Mail</h2><br>
-            Contact us at this E-Mail about errors, bugs or questions: <a href="mailto:cordofficialtm@gmail.com">cordofficialtm@gmail.com</a><br><br>
+            Contact us at this E-Mail about errors, bugs, or questions: <a href="mailto:cordofficialtm@gmail.com">cordofficialtm@gmail.com</a><br><br>
                 <h2 class="devtitle">Direct Message</h2>
-            <form action="http://cars.bplaced.net/s.php" method="post">
-                <textarea required name="txt" maxlength="5000"></textarea><br>
+            <form action="https://formspree.io/cordofficialtm@gmail.com" method="post">
+                <input type="email" required  placeholder="example@gmail.com" name="Email"/>
+                <br />
+                <input type="text" required placeholder="Name(Either fake or real)" name="Name"/>
+                <br />
+                <textarea required placeholder="On a scale of 1-10, How much coding experience do you have? And in what languages?" cols="30" rows="5" maxlength="1000" name="experience"></textarea>
+                <br />
+                <select required name="group">
+                    <option value="AiDevelopment">AI Development</option>
+                    <option value="WebDevelopment">Web Development</option>
+                    <option value="SoftwareDevelopment">Software Development</option>
+                </select>
+                <br />
                 <input type="submit" name="sub" value="Send Message">
             </form>
             </div>
