@@ -129,6 +129,8 @@
             input[type=submit]:hover, input[type=submit]:active {
               cursor: pointer;
             }
+            .speech-bubble { padding: 15px; position: relative; background: white; border-radius: .4em; }
+            .speech-bubble:after { content: ''; position: absolute; top: 0; left: 50%; width: 0; height: 0; border: 26px solid transparent; border-bottom-color: white; border-top: 0; border-left: 0; margin-left: -13px; margin-top: -26px; }
         </style>
         <script>
         function homet() {
@@ -173,7 +175,7 @@
         <div id="main">
             <h3>Welcome To CORD!</h3>
             <p>In CORD we develop websites, apps, and even A.I. We are accepting many members and we are free of charge!. So why join CORD? It is a very good learning opportunity and a great way to show off your skills. It's really easy to apply too, just fill out the form and we will get back to you A.S.A.P.</p>
-            <div id="quote1"><span class="quote">&ldquo;</span>Throughout my career, I’ve had the great fortune to work on some truly inspiring projects, while meeting many influential and creative individuals along the way. I believe in working together to create a whole that is greater than the sum of its parts. For more information about my experience, portfolio or how we can collaborate on an upcoming project, get in touch today.<span class="quote">&rdquo;</span> - <span style="font-weight: bold;">Aditya Khandelwal.</span></div>
+            <div class="speech-bubble" id="quote1"><span class="quote">&ldquo;</span>Throughout my career, I’ve had the great fortune to work on some truly inspiring projects, while meeting many influential and creative individuals along the way. I believe in working together to create a whole that is greater than the sum of its parts. For more information about my experience, portfolio or how we can collaborate on an upcoming project, get in touch today.<span class="quote">&rdquo;</span> - <span style="font-weight: bold;">Aditya Khandelwal.</span></div>
         </div>
         <div id="apps">
             Apps
