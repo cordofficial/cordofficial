@@ -1,0 +1,609 @@
+<!-- v3.1 -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TicTacToe</title>
+        <a id="title"><b>TIC TAC TOE</b></a>
+        <style>
+
+
+
+#title { font-size: 325%;
+  text-shadow: 2px 2px 2px lightblue, -2px 2px 2px white, 2px -2px 2px skyblue, -2px -2px 2px white;
+  color: blue;
+  text-align: center; }
+
+#body { color: navy;
+  text-shadow: 2px 2px 2px white, -2px 2px 2px white, 2px -2px 2px white, -2px -2px 2px white;
+  background-color: lightblue;
+  background-position: center;
+  background-size: 400%;
+  background-repeat: no-repeat;
+  text-align: center; }
+
+#a1 { font-size: 26pt; }
+
+#dif { display: none; }
+
+#game0 { display: none; }
+#game1 { display: none; }
+
+p { font-size: 18pt;
+  margin: auto;
+  text-align: center;}
+
+a { font-size: 18pt;
+  margin: auto;
+  text-align: center;}
+
+button { width:75%;
+  color: white;
+  font-size: 18pt;
+  background-color: navy;
+  border-style: solid;
+  border-color: white;
+  border-radius: 7px;
+  margin-bottom: 7px; }
+
+#menu0 { width: 49%;
+  border-color: white;
+  border-radius: 7px;
+  color: white; }
+#menu1 { width: 49%;
+  border-color: white;
+  border-radius: 7px;
+  color: white; }
+
+#rst0 { width: 49%;
+  border-color: white;
+  border-radius: 7px;
+  color: white; }
+#rst1 { width: 49%;
+  border-color: white;
+  border-radius: 7px;
+  color: white; }
+
+table { color: blue;
+  border-collapse: separate;
+  width: 100%;
+  table-layout: fixed;
+  text-align: center;
+  text-shadow: 2px 2px 2px white, -2px 2px 2px white, 2px -2px 2px white, -2px -2px 2px white;
+  border-style: solid;
+  border-color: darkred;
+  border-width: 2px;
+  border-radius: 10px; }
+
+tr { height: 90px; }
+td { font-size: 48pt;
+  border-style: solid;
+  border-color: white;
+  border-width: 2px; }
+
+#a0 { border-radius: 7px; }
+#a { border-radius: 7px; }
+#b0 { border-radius: 7px; }
+#b { border-radius: 7px; }
+#c0 { border-radius: 7px; }
+#c { border-radius: 7px; }
+#d0 { border-radius: 7px; }
+#d { border-radius: 7px; }
+#e0 { border-radius: 7px; }
+#e { border-radius: 7px; }
+#f0 { border-radius: 7px; }
+#f { border-radius: 7px; }
+#g0 { border-radius: 7px; }
+#g { border-radius: 7px; }
+#h0 { border-radius: 7px; }
+#h { border-radius: 7px; }
+#i0 { border-radius: 7px; }
+#i { border-radius: 7px; }
+
+#p02 { word-spacing: 7pt; }
+
+#p2 { word-spacing: 7pt;
+  margin: 0px 0px 0px 27px; }
+
+#p3 { word-spacing: 7pt; }
+
+#footer { position: fixed;
+ bottom: 7px;
+ left: 0;
+ width: 100%; }
+
+
+        </style>
+        <script>
+
+
+
+window.onload = function(){
+document.body.style.backgroundImage = "url('https://vignette.wikia.nocookie.net/undertale/images/c/c6/T%C5%82o_na_stron%C4%99_Sandy.jpg/revision/latest?cb=20161111154406&path-prefix=pl')";
+var arr0 = [a0, b0, c0, d0, e0, f0, g0, h0, i0];
+var arr1 = [a, b, c, d, e, f, g, h, i];
+var tc = 0;
+btnClick();
+
+function addColorEvent(x){
+  var btn = x;
+  btn.addEventListener("click", btnSelect);
+  return;
+}
+
+function remColorEvent(x){
+  var btn = x;
+  btn.removeEventListener("click", btnSelect);
+  return;
+}
+
+function btnColor(x, c){
+    var btn = x;
+    if(c==g){btn.style.backgroundColor = "lightgreen";}
+    if(c==b){btn.style.backgroundColor = "navy";}
+    return;
+}
+
+function btnClick(){
+  addColorEvent(btn1);
+  addColorEvent(btn2);
+  addColorEvent(btn3);
+  addColorEvent(btn4);
+  addColorEvent(btn5);
+  btn1.addEventListener("click", ifBtn1);
+  btn2.addEventListener("click", ifBtn2);
+  return;
+}// end btnClick
+
+function btnSelect(event){
+  var x = this.id;
+  if(x == 'btn1'){
+    btnColor(btn1, g);
+    remColorEvent(btn2);
+    btn2.removeEventListener("click", ifBtn2);
+    frndPlay(); }
+
+  if(x == 'btn2'){
+    btnColor(btn2, g);
+    remColorEvent(btn1);
+    btn1.removeEventListener("click", ifBtn1); }
+
+  if(x == 'btn3'){
+    btnColor(btn3, g);
+    remColorEvent(btn4);
+    remColorEvent(btn5);
+    comPlay(); }
+
+  if(x == 'btn4'){
+    btnColor(btn4, g);
+    remColorEvent(btn3);
+    remColorEvent(btn5);
+    comPlay(); }
+
+  if(x == 'btn5'){
+    btnColor(btn5, g);
+    remColorEvent(btn3);
+    remColorEvent(btn4);
+    comPlay(); }
+
+  return;
+} // end btnColor
+
+function ifBtn1(){
+  setTimeout(function(){
+      menu.style.display = "none";
+      footer.style.display = "none";
+      game0.style.display = "block";
+  }, 350);
+  return;
+} // btn1
+
+function ifBtn2(){
+  setTimeout(function(){
+    menu.style.display = "none";
+    footer.style.display = "none";
+    dif.style.display = "none";
+    game1.style.display = "block";
+    comPlay();
+    btn3.addEventListener("click", ifDif);
+    btn4.addEventListener("click", ifDif);
+    btn5.addEventListener("click", ifDif);
+  }, 350);
+  return;
+} // btn2
+
+function ifDif(){
+  setTimeout(function(){
+    dif.style.display = "none";
+    game1.style.display = "block"; }, 350);
+  return;
+} // end dif
+
+function inaRow(m, arg){
+  if(arg==0){
+      var arr = arr0.copyWithin();
+  }
+  if(arg==1){
+    for(x=0; x < 9; x++){
+      var arr = arr1.copyWithin();
+    }
+  }
+  if((arr[0].innerHTML == m & arr[1].innerHTML == m & arr[2].innerHTML == m) | (arr[0].innerHTML == m & arr[3].innerHTML == m & arr[6].innerHTML == m) | (arr[3].innerHTML == m & arr[4].innerHTML == m & arr[5].innerHTML == m) | (arr[6].innerHTML == m & arr[7].innerHTML == m & arr[8].innerHTML == m) | (arr[1].innerHTML == m & arr[4].innerHTML == m & arr[7].innerHTML == m) | (arr[2].innerHTML == m & arr[5].innerHTML == m & arr[8].innerHTML == m) | (arr[0].innerHTML == m & arr[4].innerHTML == m & arr[8].innerHTML == m) | (arr[2].innerHTML == m & arr[4].innerHTML == m & arr[6].innerHTML == m)){
+    return true;
+  }
+}
+
+function menuClear(){
+  menu.style.display = "block";
+  footer.style.display = "block";
+  game0.style.display = "none";
+  game1.style.display = "none";
+  btnColor(btn1, b);
+  btnColor(btn2, b);
+  btnColor(btn3, b);
+  btnColor(btn4, b);
+  btnColor(btn5, b);
+  btnClick();
+};
+
+function addAllEvent(arg){
+  for(x=0; x < 9; x++){
+    if(arg==0){
+      arr0[x].addEventListener("click", act0); }
+    if(arg==1){
+      arr1[x].addEventListener("click", act1); }
+  }
+};
+
+function remAllEvent(arg){
+  for(x=0; x < 9; x++){
+    if(arg==0){
+      remGameEvent(arr0[x], 0);
+    }
+    if(arg==1){
+      remGameEvent(arr1[x], 1);
+    }
+  }
+}
+
+function remGameEvent(arg, sg){
+  if(sg==0){
+    arg.removeEventListener("click", act0); }
+  if(sg==1){
+      arg.removeEventListener("click", act1); }
+}
+
+
+
+
+function frndPlay(){
+  addAllEvent(0);
+
+  menu0.addEventListener("click", menuFunc);
+  function menuFunc(){
+    tc = 0;
+    menuClear();
+    remAllEvent(0);
+    for(x=0; x < 9; x++){
+      arr0[x].innerHTML = "";
+    }
+  } // end menu
+
+  rst0.addEventListener("click", reset);
+  function reset(){
+    tc = 0;
+    addAllEvent(0);
+    for(x=0; x < 9; x++){
+      arr0[x].innerHTML = "";
+    }
+  } // end reset
+  return;
+} // end frndPlay
+
+function act0(event){
+    if(tc%2 == 0){
+      this.innerHTML = "X";
+      remGameEvent(this, 0);
+      match("X");
+    } else {
+      this.innerHTML = "O";
+      remGameEvent(this, 0);
+      match("O");
+    }
+    tc++;
+
+    function match(m){
+    //abc,def,ghi,adg,beh,cfi,aei,ceg
+      if(inaRow(m, 0)){
+        if(m=="X"){
+          alert ("Player1 Wins!");
+          remAllEvent(0);
+        }
+        if(m=="O") {
+          alert ("Player2 Wins!");
+          remAllEvent(0);
+        }
+      } else {
+        var count = 0;
+        for(x=0; x < 9; x++){
+          if(arr0[x].innerHTML != ""){
+            remGameEvent(arr0[x], 0);
+            count++; }
+        }
+        if(count == 9){
+          alert("Draw");;
+          remAllEvent(0);
+        }
+      }
+    } // end match
+    return;
+} // end act0
+
+
+
+
+function comPlay(){
+  addAllEvent(1);
+
+  menu1.addEventListener("click", menuFunc);
+  function menuFunc(){
+      menuClear();
+      remAllEvent(1);
+      for(x=0; x < 9; x++){
+          arr1[x].innerHTML = "";
+      }
+  } // end menu
+
+  rst1.addEventListener("click", reset);
+  function reset(){
+      addAllEvent(1);
+      for(x=0; x < 9; x++){
+          arr1[x].innerHTML = "";
+      }
+  } // end reset
+  return;
+} // end comPlay
+
+function act1(event){
+    var id = this.id;
+    this.innerHTML = "X";
+    remGameEvent(this, 1);
+    match("X");
+
+    function match(m){
+  //abc,def,ghi,adg,beh,cfi,aei,ceg
+      if(inaRow(m, 1)){
+        if(m == "X"){
+          alert ("Player1 Wins!");
+          remAllEvent(1);
+        }
+        if(m == "O") {
+          alert ("Player2 Wins!");
+          remAllEvent(1);
+        }
+      } else {
+          var count = 0;
+          for(x=0; x < 9; x++){
+            if(arr1[x].innerHTML != ""){
+              remGameEvent(arr1[x], 1)
+                count++;
+            }
+          }
+          if(count == 9){
+              alert("Draw");
+          } else{
+              if(m == "X"){ logic(); }
+          }
+      }
+    } // end match
+
+    function rand(){
+      var random = arr1[Math.floor(Math.random()*arr1.length)];
+      if(random.innerHTML == "") {
+          markO(random); }
+      else{ rand(); }
+    } // end rand
+
+    function logic(){
+      if(id == "a"){
+          if(b.innerHTML =="X"){
+              markO(c);}
+          else if(c.innerHTML =="X"){
+              markO(b);}
+          else if(e.innerHTML =="X"){
+              markO(i);}
+          else if(i.innerHTML =="X"){
+              markO(e);}
+          else if(d.innerHTML =="X"){
+              markO(g);}
+          else if(g.innerHTML =="X"){
+              markO(b);}
+          else{ rand(); }
+      }
+      if(id == "b"){
+          if(a.innerHTML =="X"){
+              markO(c);}
+          else if(c.innerHTML =="X"){
+              markO(a);}
+          else if(e.innerHTML =="X"){
+              markO(h);}
+          else if(h.innerHTML =="X"){
+              markO(e);}
+          else{ rand(); }
+      }
+      if(id == "c"){
+          if(b.innerHTML =="X"){
+              markO(a);}
+          else if(a.innerHTML =="X"){
+              markO(b);}
+          else if(e.innerHTML =="X"){
+              markO(g);}
+          else if(g.innerHTML =="X"){
+              markO(e);}
+          else if(f.innerHTML =="X"){
+              markO(i);}
+          else if(i.innerHTML =="X"){
+              markO(f);}
+          else{ rand(); }
+      }
+      if(id == "d"){
+          if(a.innerHTML =="X"){
+              markO(g);}
+          else if(g.innerHTML =="X"){
+              markO(a);}
+          else if(e.innerHTML =="X"){
+              markO(f);}
+          else if(f.innerHTML =="X"){
+              markO(e);}
+          else{ rand(); }
+      }
+      if(id == "e"){
+          if(a.innerHTML =="X"){
+              markO(i);}
+          else if(i.innerHTML =="X"){
+              markO(a);}
+          else if(b.innerHTML =="X"){
+              markO(h);}
+          else if(h.innerHTML =="X"){
+              markO(b);}
+          else if(c.innerHTML =="X"){
+              markO(g);}
+          else if(g.innerHTML =="X"){
+              markO(c);}
+          else if(d.innerHTML =="X"){
+              markO(f);}
+          else if(f.innerHTML =="X"){
+              markO(d);}
+          else{ rand(); }
+      }
+      if(id == "f"){
+          if(i.innerHTML =="X"){
+              markO(c);}
+          else if(c.innerHTML =="X"){
+              markO(i);}
+          else if(e.innerHTML =="X"){
+              markO(d);}
+          else if(d.innerHTML =="X"){
+              markO(e);}
+          else{ rand(); }
+      }
+      if(id == "g"){
+          if(e.innerHTML =="X"){
+              markO(c);}
+          else if(c.innerHTML =="X"){
+              markO(e);}
+          else if(h.innerHTML =="X"){
+              markO(i);}
+          else if(i.innerHTML =="X"){
+              markO(h);}
+          else if(d.innerHTML =="X"){
+              markO(a);}
+          else if(a.innerHTML =="X"){
+              markO(d);}
+          else{ rand(); }
+      }
+      if(id == "h"){
+          if(g.innerHTML =="X"){
+              markO(i);}
+          else if(i.innerHTML =="X"){
+              markO(g);}
+          else if(e.innerHTML =="X"){
+              markO(b);}
+          else if(b.innerHTML =="X"){
+              markO(e);}
+          else{ rand(); }
+      }
+      if(id == "i") {
+          if(f.innerHTML =="X"){
+              markO(c);}
+          else if(c.innerHTML =="X"){
+              markO(f);}
+          else if(e.innerHTML =="X"){
+              markO(a);}
+          else if(a.innerHTML =="X"){
+              markO(e);}
+          else if(h.innerHTML =="X"){
+              markO(g);}
+          else if(g.innerHTML =="X"){
+              markO(h);}
+          else{ rand(); }
+      }
+    } // end logic
+
+    function markO(arg) {
+      if(arg.innerHTML == ""){
+          arg.innerHTML = "O";
+          match("O");
+          remGameEvent(arg, 1);
+      } else{ rand(); }
+    } //end markO
+    return;
+} // end myA
+
+}
+
+
+
+        </script>
+    </head>
+    <body id="body" background="blue">
+        <p id="menu">
+            <a id="a1"><b>Play:</b></a>
+            <a></br></br></a>
+            <button id="btn1"><b>Multi Player</b></button>
+            <button id="btn2"><b>Single Player</b></button>
+        </p>
+        <a id="dif">
+            <p id="p1">Difficulty</p>
+            <button id="btn3">EASY</button>
+            <button id="btn4">MEDIUM</button>
+            <button id="btn5">HARD</button>
+        </a>
+        <a id="game0">
+            <button id="menu0"><b>MENU</b></button>
+            <button id="rst0"><b>RESET</b></button>
+            <table>
+              <tr>
+                <td id=a0></td>
+                <td id=b0></td>
+                <td id=c0></td>
+              </tr>
+              <tr>
+                <td id=d0></td>
+                <td id=e0></td>
+                <td id=f0></td>
+              </tr>
+              <tr>
+               <td id=g0></td>
+               <td id=h0></td>
+               <td id=i0></td></td>
+              </tr>
+            </table>
+            <p id="p02"><b>Player1: X Player2: O</b></p>
+        </a>
+        <a id="game1">
+            <button id="menu1"><b>MENU</b></button>
+            <button id="rst1"><b>RESET</b></button>
+            <table>
+              <tr>
+                <td id=a></td>
+                <td id=b></td>
+                <td id=c></td>
+              </tr>
+              <tr>
+                <td id=d></td>
+                <td id=e></td>
+                <td id=f></td>
+              </tr>
+              <tr>
+                <td id=g></td>
+                <td id=h></td>
+                <td id=i></td>
+              </tr>
+            </table>
+            <p id="p2"><b>Player1: X</b></p>
+            <p id="p3"><b>Computer: O</b></p>
+        </a>
+        <p id="footer">GAME by MA_STICE</p>
+    </body>
+</html>
