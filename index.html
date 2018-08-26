@@ -230,10 +230,10 @@
         }
         </script>
     </head>
-    <body align="center">
+    <body onload="startgall()" align="center">
         <div id="top">
             <div id="semititle">
-            <img src="https://media.discordapp.net/attachments/475298127264612372/475511966279008256/cordofficiallogo.png?width=474&height=474" id="logo"/>
+            <img id="image_gall" src="https://media.discordapp.net/attachments/475298127264612372/475511966279008256/cordofficiallogo.png?width=474&height=474" id="logo"/>
             <h2 id="title">CORD Official Site</h2>
             </div>
             <br />
@@ -247,10 +247,15 @@
         <div id="main">
           <div style="border: 2px solid black; margin-left: auto; margin-right: auto; width: 50%;">
             <img style="display: block;" class="gallery-img" src="https://cdn.pixabay.com/photo/2016/09/08/04/12/programmer-1653351_960_720.png" alt="Image">
-            <img class="gallery-img" src="https://cdn.pixabay.com/photo/2016/09/08/04/12/programmer-1653351_960_720.png" alt="Image">
-            <img class="gallery-img" src="https://cdn.pixabay.com/photo/2016/09/08/04/12/programmer-1653351_960_720.png" alt="Image">
-            <img class="gallery-img" src="https://cdn.pixabay.com/photo/2016/09/08/04/12/programmer-1653351_960_720.png" alt="Image">
-            <img class="gallery-img" src="https://cdn.pixabay.com/photo/2016/09/08/04/12/programmer-1653351_960_720.png" alt="Image">
+            <script>
+
+              var x = 'https://i1.sndcdn.com/artworks-000313339743-tl2ivu-t200x200.jpg';
+
+              function startgall() {
+                document.getElementById('image_gall').src = x;
+              }
+
+            </script>
           </div>
             <h3>Welcome To CORD!</h3>
             <p style="width: 80%; margin-left: auto; margin-right: auto; text-align: left;font-family: Arial, Helvetica, sans-serif">In CORD we develop websites, apps, and even A.I. We are accepting many members and we are free of charge! So why join CORD? It is a very good learning opportunity and a great way to show off your skills. It's really easy to apply too, just fill out the <span id="form-link" onclick="contactt()">form</span> and we will get back to you A.S.A.P.</p>
