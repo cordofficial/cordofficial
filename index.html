@@ -246,13 +246,25 @@
         </div>
         <div id="main">
           <div style="border: 2px solid black; margin-left: auto; margin-right: auto; width: 50%;">
-            <img id="image" style="display: block;" class="gallery-img" src="https://cdn.pixabay.com/photo/2016/09/08/04/12/programmer-1653351_960_720.png" alt="Image">
+            <img id="image" style="display: block; transition: 2s;" class="gallery-img" src="" alt="Image">
             <script>
 
-              var x = 'https://i1.sndcdn.com/artworks-000313339743-tl2ivu-t200x200.jpg';
+              var x = [
+                        'https://media.discordapp.net/attachments/475539733624389642/483665434244284417/download_1.jpeg',
+                        'https://media.discordapp.net/attachments/475539733624389642/483665434244284421/images_1.jpeg',
+                        'https://media.discordapp.net/attachments/475539733624389642/483665517488504852/images_8.jpeg',
+                        'https://media.discordapp.net/attachments/475539733624389642/483665517488504853/images_5.jpeg'
+                                                                                                                            ];
+
+              function showw(number) {
+                document.getElementById('image').src = x[number];
+              }
 
               function startgall() {
-                document.getElementById('image').src = x;
+                for(var i = 0; i < x.length; i++) {
+                  setTimeout(showw(i),3000);
+                }
+                setTimeout(startgall,3000);
               }
 
             </script>
