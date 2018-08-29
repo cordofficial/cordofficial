@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Chess</title>
+    <style>
+
+      body {
+        background-image: url('https://images.pexels.com/photos/952670/pexels-photo-952670.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');
+        background-position: center;
+      }
+
+      @keyframes anim {
+        0%{filter: blur(5px); top: -60%;}
+        25%{top: 50%;}
+        50%{filter: blur(0);}
+        63%{box-shadow: 2px 2px 8px #18aeff, -2px -2px 8px #18aeff, -2px 2px 8px #18aeff, 2px -2px 8px #18aeff;}
+        75%{box-shadow: none;}
+        87%{box-shadow: 2px 2px 8px #18aeff, -2px -2px 8px #18aeff, -2px 2px 8px #18aeff, 2px -2px 8px #18aeff;}
+        100%{box-shadow: none;}
+      }
+
+    </style>
+    <script>
+
+      window.onload = function () {
+        setTimeout(function () {window.location.href = 'chess.html';},4500);
+      }
+
+    </script>
+  </head>
+  <body>
+
+    <img src="https://media.discordapp.net/attachments/475298127264612372/475511966279008256/cordofficiallogo.png?width=474&height=474" style="animation: 4s anim;position:fixed; border-radius: 50%;  height: 500px; left: 50%; margin-left: -250px; top: 50%; margin-top: -250px;">
+
+  </body>
+
+</html>
